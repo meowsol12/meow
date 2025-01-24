@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dog of Solana - WUF</title>
+    <style>
+        body {
+            background-color: #191919;
+            color: #FFD700;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            background-color: #222;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 3px 3px 0px #FF69B4;
+        }
+        img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 5px solid #FFD700;
+        }
+        .wuf {
+            font-size: 2em;
+            font-weight: bold;
+            color: #FF69B4;
+            text-shadow: 2px 2px 5px #FFD700;
+            margin: 20px 0;
+        }
+        a {
+            display: inline-block;
+            background-color: #FF69B4;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 1.5em;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 3px 3px 5px rgba(255, 105, 180, 0.5);
+        }
+        a:hover {
+            background-color: #FF1493;
+        }
+        .chatbox {
+            width: 100%;
+            max-width: 400px;
+            background-color: #111;
+            border: 2px solid #FFD700;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 30px auto;
+        }
+        .chat-output {
+            height: 200px;
+            overflow-y: auto;
+            border-bottom: 2px solid #FFD700;
+            padding: 10px;
+            color: white;
+            text-align: left;
+        }
+        .chat-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            background-color: #222;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .chat-input:focus {
+            outline: none;
+            border: 2px solid #FF69B4;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF69B4;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #FF1493;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>THE CAT OF SOLANA</h1>
+        <img src="cat.jpg" alt="The CAT of Solana">
+        <div class="wuf">MEOW MEOW MEOW</div>
+        <a href="" target="_blank">Buy on Pump.Fun</a>
+    </div>
+
+    <div class="chatbox">
+        <div class="chat-output" id="chat-output"></div>
+        <input type="text" id="chat-input" class="chat-input" placeholder="Say something...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let inputField = document.getElementById("chat-input");
+            let chatOutput = document.getElementById("chat-output");
+
+            let userMessage = inputField.value;
+            if (userMessage.trim() === "") return;
+
+            let userChat = "<div><strong>You:</strong> " + userMessage + "</div>";
+            let botResponse = "<div><strong>CAT:</strong> <span style='color:#FF69B4'>MEOW MEOW MEOW</span></div>";
+
+            chatOutput.innerHTML += userChat + botResponse;
+            chatOutput.scrollTop = chatOutput.scrollHeight;
+
+            inputField.value = "";
+        }
+
+        // Allow pressing ENTER to send a message
+        document.getElementById("chat-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+
+</body>
+</html>
